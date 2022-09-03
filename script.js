@@ -6,26 +6,28 @@ function diagonal(length) {
 let l1 = 5;
 let l2 = 6;
 let l3 = 7;
+
 function trinagleArea(l1, l2, l3) {
   let semiper = (l1 + l2 + l3) / 2;
   console.log(
-    "area of the trinagle is: " +
-      Math.sqrt(semiper * (semiper - l1) * (semiper - l2) * (semiper - l3))
+    `area of the trinagle is: ${Math.sqrt(
+      semiper * (semiper - l1) * (semiper - l2) * (semiper - l3)
+    )}`
   );
 }
 
 function circle(radius) {
-  console.log("The circumference of the circle is: " + 2 * Math.PI * radius);
+  console.log(`The circumference of the circle is: ${2 * Math.PI * radius}`);
   console.log(
-    "The surface area of the circle is: " + Math.PI * radius * radius
+    `The surface area of the circle is: ${Math.PI * radius * radius}`
   );
 }
 
 function larger(x, y) {
   if (x > y) {
-    console.log(x + " is bigger");
+    console.log(`${x} is bigger`);
   } else if (y > x) {
-    console.log(y + " is bigger");
+    console.log(`${y} is bigger`);
   } else {
     console.log("they are both equal");
   }
@@ -33,9 +35,9 @@ function larger(x, y) {
 
 function checkParity(x) {
   if (x % 2 === 1) {
-    console.log(x + " is an odd number");
+    console.log(`${x} is an odd number`);
   } else {
-    console.log(x + " is an even number");
+    console.log(`${x} is an even number`);
   }
 }
 
@@ -108,4 +110,4 @@ function game() {
 //diagonal(9);
 //trinagleArea(l1, l2, l3);
 //circle(4);
-game();
+//game();
