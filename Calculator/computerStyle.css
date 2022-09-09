@@ -1,0 +1,46 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(100px, auto) repeat(5, 100px);
+  gap: 2px;
+}
+
+#overseer {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+
+button {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+.displayPannel {
+  margin: auto;
+  height: 40px;
+  align-content: center;
+  background-color: rgb(210, 210, 210);
+  border: 5px;
+  border-style: solid;
+}
+
+#valueDisplayer {
+  text-align: center;
+  margin: 0;
+}
+
+#calculator {
+  margin: auto;
+  height: 80vh;
+  width: 57vh;
+  background-color: rgb(28, 28, 28);
+  border: 5px;
+  border-style: solid;
+  overflow: hidden;
+}

@@ -1,4 +1,4 @@
-const root = Math.SQRT2;
+/*const root = Math.SQRT2;
 function diagonal(length) {
   console.log("diagonal of the square is: " + length * root);
 }
@@ -40,71 +40,76 @@ function checkParity(x) {
     console.log(`${x} is an even number`);
   }
 }
+*/
 
+let rockbtn = document.getElementById("rock");
+let paperbtn = document.getElementById("paper");
+let scisorsbtn = document.getElementById("scisors");
+let scoreDisplay = document.querySelector(".scoreDisplay");
+
+rockbtn.addEventListener("click", () => {
+  let computerChoice = computerPlay();
+  playRound(computerChoice, "Rock");
+  game();
+});
+paperbtn.addEventListener("click", () => {
+  let computerChoice = computerPlay();
+  playRound(computerChoice, "Paper");
+  game();
+});
+scisorsbtn.addEventListener("click", () => {
+  let computerChoice = computerPlay();
+  playRound(computerChoice, "Scisors");
+  game();
+});
 function computerPlay() {
   const random = Math.floor(Math.random() * 3 + 1);
   const optionsArr = ["Rock", "Paper", "Scisors"];
   return optionsArr[random - 1];
 }
+
 let playerScore = 0;
 let computerScore = 0;
 function playRound(computerSelection, playerSelection) {
   if ((computerSelection == "Rock") & (playerSelection == "Paper")) {
-    console.log("you win");
+    //console.log("you win");
     playerScore++;
-  } else if ((computerSelection == "Rock") & (playerSelection == "Rock")) {
-    console.log("tie . both teams get 1 point");
+  } else if (computerSelection === playerSelection) {
+    //console.log("tie . both teams get 1 point");
     computerScore++;
     playerScore++;
   } else if ((computerSelection == "Rock") & (playerSelection == "Scisors")) {
-    console.log("you lose");
+    //console.log("you lose");
     computerScore++;
-  } else if ((computerSelection == "Paper") & (playerSelection == "Paper")) {
-    console.log("tie . both teams get 1 point");
-    computerScore++;
-    playerScore++;
   } else if ((computerSelection == "Paper") & (playerSelection == "Rock")) {
-    console.log("you lose");
+    //console.log("you lose");
     computerScore++;
   } else if ((computerSelection == "Paper") & (playerSelection == "Scisors")) {
-    console.log("you win");
+    //console.log("you win");
     playerScore++;
   } else if ((computerSelection == "Scisors") & (playerSelection == "Paper")) {
-    console.log("you lose");
+    //console.log("you lose");
     computerScore++;
   } else if ((computerSelection == "Scisors") & (playerSelection == "Rock")) {
-    console.log("you win");
+    //console.log("you win");
     playerScore++;
-  } else if (
-    (computerSelection == "Scisors") &
-    (playerSelection == "Scisors")
-  ) {
-    console.log("tie . both teams get 1 point");
-    playerScore++;
-    computerScore++;
   }
+  scoreDisplay.innerHTML = playerScore + " to " + computerScore;
 }
 
 function game() {
-  for (i = 1; i <= 5; i++) {
-    let computerSelection = computerPlay();
+  if (playerScore === 5) {
+    scoreDisplay.innerHTML =
+      "Final winner is the Player: " + playerScore + " to " + computerScore;
 
-    let playerSelection = prompt(
-      "Playing 'Rock Paper Scisors' pick your poison"
-    );
-    playRound(computerSelection, playerSelection);
-  }
+    playerScore = 0;
+    computerScore = 0;
+  } else if (computerScore === 5) {
+    scoreDisplay.innerHTML =
+      "Final winner is the Computer: " + computerScore + " to " + playerScore;
 
-  if (playerScore > computerScore) {
-    console.log(
-      "Final winner is the Player: " + playerScore + " to " + computerScore
-    );
-  } else if (playerScore < computerScore) {
-    console.log(
-      "Final winner is the Computer: " + computerScore + " to " + playerScore
-    );
-  } else {
-    console.log("Its a tie: " + playerScore + " to " + computerScore);
+    playerScore = 0;
+    computerScore = 0;
   }
 }
 //diagonal(9);

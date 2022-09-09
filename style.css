@@ -1,0 +1,14 @@
+.choices {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.scoreContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
